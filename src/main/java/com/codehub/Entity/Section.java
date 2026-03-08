@@ -1,4 +1,5 @@
 package com.codehub.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.engine.internal.Cascade;
@@ -15,7 +16,7 @@ public class Section {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private Integer id;
 
     @Column(nullable = false,name = "name")
     private String name;
@@ -23,5 +24,6 @@ public class Section {
     private String description;
 
     @OneToMany(mappedBy = "section",cascade = CascadeType.ALL,orphanRemoval = true)
+    @JsonIgnore
     private List<Post> posts;
 }

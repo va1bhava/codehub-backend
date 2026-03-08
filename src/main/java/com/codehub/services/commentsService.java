@@ -4,19 +4,22 @@ import com.codehub.Entity.Post;
 import com.codehub.Exception.ResourceNotFound;
 import com.codehub.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
+@Service
 public class commentsService {
     @Autowired
     private postRepository postRepo ;
     @Autowired
     private commentsRepository commentsRepo;
 
-    public Comments createComment(int postId,Comments comments){
+    public Comments createComment(Integer postId,Comments comments){
           Post post= postRepo.findById(postId).orElseThrow(()->new ResourceNotFound("Post Not found to Comment"));
           comments.setPost(post);
           return commentsRepo.save(comments);
     }
-    public List<Comments>getCommentsByPost(int postId){
+    public List<Comments>getCommentsByPost(Integer postId){
         return commentsRepo.findByPost_Id(postId);
     }
 }

@@ -11,6 +11,7 @@ import java.util.List;
 public class PostController {
     @Autowired
     private postService postservice;
+
     @PostMapping("/{sectionId}/posts")
     public Post createPost(@PathVariable Integer sectionId,
                            @RequestBody Post post) {

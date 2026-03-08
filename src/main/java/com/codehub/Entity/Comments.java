@@ -1,5 +1,6 @@
 package com.codehub.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +20,7 @@ public class Comments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private Integer id;
 
       @Column(unique = true,name = "nickname",length = 250)
     private String nickname;
@@ -27,13 +28,14 @@ public class Comments {
     @Column(nullable = false,length = 2500,name = "content")
     private String content;
     @Column(name = "upvotes")
-    private int upvotes = 0;
+    private Integer upvotes = 0;
 
       @Column(name="createdAt")
     private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id",nullable = false)
+    @JsonIgnore
     private Post post;
 
     @PrePersist
