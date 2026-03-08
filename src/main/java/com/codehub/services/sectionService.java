@@ -10,6 +10,7 @@ public class sectionService {
     private sectionRepository sectionRepo;
     @Autowired
      public  sectionService(sectionRepository sectionRepo){
+
         this.sectionRepo=sectionRepo;
     }
     public List<Section>getAllSections(){

@@ -26,8 +26,8 @@ public class Comments {
 
     @Column(nullable = false,length = 2500,name = "content")
     private String content;
-      @Column(name="upvotes")
-    private int upvotes=0;
+    @Column(name = "upvotes")
+    private int upvotes = 0;
 
       @Column(name="createdAt")
     private LocalDateTime createdAt;

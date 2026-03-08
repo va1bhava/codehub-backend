@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -33,6 +34,9 @@ public class Post {
      @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "section_id",nullable = false)
     private Section section;
+
+     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,orphanRemoval = true)
+     private List<Comments> comments;
 
     @PrePersist
     public void setCreatedAt() {

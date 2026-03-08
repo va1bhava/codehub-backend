@@ -1,6 +1,10 @@
 package com.codehub.Entity;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.engine.internal.Cascade;
+
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -13,9 +17,11 @@ public class Section {
     @Column(name="id")
     private int id;
 
-    @Column(nullable = false,unique = true,name = "name")
+    @Column(nullable = false,name = "name")
     private String name;
     @Column(name = "description")
     private String description;
 
+    @OneToMany(mappedBy = "section",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Post> posts;
 }
