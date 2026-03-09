@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sections")
+
 public class PostController {
     @Autowired
     private postService postservice;
@@ -17,8 +17,13 @@ public class PostController {
                            @RequestBody Post post) {
         return postservice.createpost(sectionId, post);
     }
-    @GetMapping("/getPostsBySection/{sectionId}")
-    public List<Post> getPostsbySectionId(@PathVariable int sectionId){
+    @GetMapping("/sections/{sectionId}/posts")
+    public List<Post>fetchPostsbySection(@PathVariable Integer sectionId){
         return postservice.getPostsbySection(sectionId);
+    }
+    @PostMapping("/deletepost/{postId}")
+    public void deletePost(@PathVariable Integer postId){
+        postservice.deletePost(postId);
+
     }
 }

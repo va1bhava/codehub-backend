@@ -22,4 +22,8 @@ public class commentsService {
     public List<Comments>getCommentsByPost(Integer postId){
         return commentsRepo.findByPost_Id(postId);
     }
+    public void deleteComments(Integer commentId){
+        Comments comment=commentsRepo.findById(commentId).orElseThrow(()->new ResourceNotFound("Comment not found to delete"));
+        commentsRepo.deleteById(commentId);
+    }
 }

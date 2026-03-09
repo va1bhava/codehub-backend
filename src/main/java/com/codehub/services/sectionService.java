@@ -1,4 +1,5 @@
 package com.codehub.services;
+import com.codehub.Entity.Post;
 import com.codehub.Entity.Section;
 import com.codehub.Exception.ResourceNotFound;
 import com.codehub.Repository.sectionRepository;
@@ -17,7 +18,8 @@ public class sectionService {
 
         return sectionRepo.findAll();
     }
-    public Section getSectionbyId(int id){
+    public Section getSectionbyId(Integer id){
         return sectionRepo.findById(id).orElseThrow(()->new ResourceNotFound("Unable to find the Section!!"));
     }
+
 }

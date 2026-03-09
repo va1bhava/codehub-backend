@@ -27,7 +27,11 @@ public class postService {
     public List<Post> getPostsbySection(int sectionId){
         return postRepo.findBySection_Id(sectionId);
     }
-    public Post getPost(int postId){
+    public Post getPost(Integer postId){
         return postRepo.findById(postId).orElseThrow(()->new ResourceNotFound("Post Not Found !! "));
+    }
+    public void deletePost(Integer postId){
+        Post post= postRepo.findById(postId).orElseThrow(()->new ResourceNotFound("Post not found to delete"));
+        postRepo.deleteById(postId);
     }
 }
