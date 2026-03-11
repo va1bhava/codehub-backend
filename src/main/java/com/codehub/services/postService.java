@@ -5,6 +5,7 @@ import com.codehub.Entity.Section;
 import com.codehub.Exception.ResourceNotFound;
 import com.codehub.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,5 +41,8 @@ public class postService {
     public void deletePost(Integer postId){
         Post post= postRepo.findById(postId).orElseThrow(()->new ResourceNotFound("Post not found to delete"));
         postRepo.deleteById(postId);
+    }
+    public List<Post> getAllPosts(){
+        return postRepo.findAll(Sort.by(Sort.Direction.DESC,"createdAt"));
     }
 }

@@ -26,4 +26,8 @@ public class PostController {
         postservice.deletePost(postId);
 
     }
+    @GetMapping("/getallposts")
+    public List<Post> getAllposts(){
+        return postservice.getAllPosts();
+    }
 }
