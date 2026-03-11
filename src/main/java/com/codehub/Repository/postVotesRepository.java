@@ -8,5 +8,5 @@ import java.util.Optional;
 
 
 public interface postVotesRepository extends JpaRepository<PostVotes,Integer> {
-    Optional<PostVotes> findByPostIdAndNickname(Integer postId, String Nickname);
+    Optional<PostVotes> findByPost_IdAndNickname(Integer postId, String Nickname);
 }
