@@ -3,7 +3,7 @@ package com.codehub.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "comment_votes",uniqueConstraints = @UniqueConstraint(columnNames = {"commentId,nickname"}))
+@Table(name = "comment_votes",uniqueConstraints = @UniqueConstraint(columnNames = {"comment_id,nickname"}))
 public class CommentVotes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

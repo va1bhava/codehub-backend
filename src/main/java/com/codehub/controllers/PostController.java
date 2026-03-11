@@ -17,7 +17,7 @@ public class PostController {
                            @RequestBody Post post) {
         return postservice.createpost(sectionId, post);
     }
-    @GetMapping("/sections/{sectionId}/posts")
+    @GetMapping("/{sectionId}/getposts")
     public List<Post>fetchPostsbySection(@PathVariable Integer sectionId){
         return postservice.getPostsbySection(sectionId);
     }

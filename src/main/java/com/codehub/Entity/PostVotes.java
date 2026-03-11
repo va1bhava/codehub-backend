@@ -4,12 +4,12 @@ import jakarta.persistence.*;
 
 @Entity
 
-@Table(name = "post_votes",uniqueConstraints = @UniqueConstraint(columnNames = {"postID,nickname"}))
+@Table(name = "post_votes",uniqueConstraints = @UniqueConstraint(columnNames = {"post_id,nickname"}))
 public class PostVotes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "nickname",nullable = false)
     private String nickname;

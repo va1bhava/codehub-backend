@@ -25,8 +25,8 @@ public class Post {
     @Column(nullable = false,length = 2500,name="content")
     private String content;
 
-    @Column(name="upvotes")
-     private Integer upvotes=0;
+    @Transient
+    private Integer votes;
 
     @Column(name="createdAt")
      private LocalDateTime createdAt;
@@ -41,5 +41,13 @@ public class Post {
     @PrePersist
     public void setCreatedAt() {
         this.createdAt = LocalDateTime.now();
+    }
+
+    public Integer getVotes() {
+        return votes;
+    }
+
+    public void setVotes(Integer votes) {
+        this.votes = votes;
     }
 }

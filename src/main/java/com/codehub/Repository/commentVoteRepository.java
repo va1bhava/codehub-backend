@@ -8,5 +8,5 @@ import javax.crypto.spec.OAEPParameterSpec;
 import java.util.Optional;
 
 public interface commentVoteRepository extends JpaRepository<CommentVotes,Integer> {
-    Optional<CommentVotes>findByCommentIdAndNickname(Integer commentID,String Nickname);
+    Optional<CommentVotes>findByComments_IdAndNickname(Integer commentID,String Nickname);
 }
